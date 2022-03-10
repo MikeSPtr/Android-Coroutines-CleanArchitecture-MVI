@@ -1,6 +1,10 @@
 package com.base.application.data
 
-import com.base.common.data.*
+import com.base.common.data.ForbiddenNetworkException
+import com.base.common.data.NoConnectionNetworkException
+import com.base.common.data.NotFoundNetworkException
+import com.base.common.data.OtherNetworkException
+import com.base.common.data.UnauthorizedNetworkException
 import retrofit2.Response
 import kotlin.Exception
 

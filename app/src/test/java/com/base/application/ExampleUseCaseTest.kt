@@ -1,7 +1,7 @@
 package com.base.application
 
-import com.base.tests_common.TestDispatchers
 import com.base.common.domain.UseCase
+import com.base.tests_common.TestDispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.runTest

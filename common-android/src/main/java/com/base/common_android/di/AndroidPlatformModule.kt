@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.base.common.IDispatchers
 import com.base.common.domain.repository.IPreferencesDataSource
+import com.base.common.domain.repository.ISystemResourcesRepository
 import com.base.common_android.domain.repository.PreferencesDataSource
 import com.base.common_android.domain.repository.SystemResourcesRepository
-import com.base.common.domain.repository.ISystemResourcesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

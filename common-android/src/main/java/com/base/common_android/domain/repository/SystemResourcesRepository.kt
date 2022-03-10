@@ -11,6 +11,6 @@ class SystemResourcesRepository @Inject constructor(
 ) : ISystemResourcesRepository {
 
     override fun getString(@StringRes resId: Int): String {
-       return context.getString(resId)
+        return context.getString(resId)
     }
 }

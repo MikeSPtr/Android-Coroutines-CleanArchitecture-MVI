@@ -24,7 +24,6 @@ abstract class StateViewModel<S : IViewState, I : IViewIntent, E : IViewEffect>(
     init {
         viewModelScope.launch(dispatchers.Default) {
             handleIntents()
-
         }
     }
 

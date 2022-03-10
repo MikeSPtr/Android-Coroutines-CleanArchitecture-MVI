@@ -1,12 +1,13 @@
 package com.base.application
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.*
-import com.base.tests_common.TestDispatchers
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import com.base.common.IDispatchers
 import com.base.common.domain.LoadingProgressResult
 import com.base.common.domain.LoadingResult
 import com.base.tests_common.MainCoroutineRule
+import com.base.tests_common.TestDispatchers
 import com.base.tests_common.captureValues
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle

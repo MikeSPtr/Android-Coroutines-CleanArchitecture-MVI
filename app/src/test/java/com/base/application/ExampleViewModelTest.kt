@@ -1,11 +1,14 @@
 package com.base.application
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.*
-import com.base.tests_common.TestDispatchers
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.base.common.IDispatchers
 import com.base.common.domain.UseCase
 import com.base.tests_common.MainCoroutineRule
+import com.base.tests_common.TestDispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

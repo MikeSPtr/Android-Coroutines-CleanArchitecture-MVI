@@ -8,8 +8,8 @@ import com.base.common.domain.LoadingResult
 import com.base.tests_common.MainCoroutineRule
 import com.base.tests_common.captureValues
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest

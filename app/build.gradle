@@ -1,3 +1,5 @@
+import org.jlleitschuh.gradle.ktlint.tasks.BaseKtLintCheckTask
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'

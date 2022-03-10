@@ -7,13 +7,13 @@ import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 
 @ExperimentalCoroutinesApi
-class TestDispatchers: IDispatchers {
+class TestDispatchers : IDispatchers {
     override val Main: CoroutineDispatcher
         get() = StandardTestDispatcher()
     override val Default: CoroutineDispatcher
-        get() =  StandardTestDispatcher()
+        get() = StandardTestDispatcher()
     override val IO: CoroutineDispatcher
-        get() =  StandardTestDispatcher()
+        get() = StandardTestDispatcher()
     override val Unconfined: CoroutineDispatcher
-        get() =  UnconfinedTestDispatcher()
+        get() = UnconfinedTestDispatcher()
 }
