@@ -75,4 +75,3 @@ jobs:
       # Assemble Debug
       - name: Assemble Debug
         run: ./gradlew
-        assembleDebug
