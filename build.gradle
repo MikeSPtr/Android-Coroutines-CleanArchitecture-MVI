@@ -33,7 +33,7 @@ allprojects {
 }
 
 subprojects {
-    apply from: "../dependencies.gradle"
+    apply from: "$project.rootDir/dependencies.gradle"
 }
 
 task clean(type: Delete) {

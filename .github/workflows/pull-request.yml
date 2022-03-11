@@ -1,0 +1,78 @@
+name: PullRequest
+
+on:
+  push:
+  pull_request:
+    types: [ opened, synchronize ]
+    branches:
+      - master
+      - dev
+
+jobs:
+  static-analysis:
+    name: Execute analyse on code
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up our JDK environment
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Cache Gradle and wrapper
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # Check the code with ktlint, you can remove this job if you don't use ktlint
+      - name: Run Kotlin Linter
+        run: ./gradlew ktlintCheck
+
+      # Check the code with Android linter (need assemble)
+      - name: Run Android Linter
+        run: ./gradlew lint
+
+  test-and-build:
+    name: Build, Lint and Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up our JDK environment
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Cache Gradle and wrapper
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # Test
+      - name: Run unit tests
+        run: ./gradlew test
+
+      # Assemble Debug
+      - name: Assemble Debug
+        run: ./gradlew
+        assembleDebug
