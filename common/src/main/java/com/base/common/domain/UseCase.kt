@@ -1,6 +1,6 @@
 package com.base.common.domain
 
-import com.base.applicationcommon.IDispatchers
+import com.base.common.IDispatchers
 
 /**
  * Abstract UseCase class.
