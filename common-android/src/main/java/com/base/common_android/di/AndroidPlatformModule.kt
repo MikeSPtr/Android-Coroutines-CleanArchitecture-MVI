@@ -2,11 +2,12 @@ package com.base.common_android.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.base.common.IDispatchers
+import com.base.applicationcommon.IDispatchers
 import com.base.common.domain.repository.IPreferencesDataSource
-import com.base.common.domain.repository.ISystemResourcesRepository
-import com.base.common_android.domain.repository.PreferencesDataSource
+import com.base.common_android.data.source.PreferencesDataSource
+import com.base.common_android.domain.repository.ISystemResourcesRepository
 import com.base.common_android.domain.repository.SystemResourcesRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,13 +20,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class AndroidPlatformModule {
-    @Provides
-    fun provideSystemResourcesRepository(
-        systemResourcesRepository: SystemResourcesRepository
-    ): ISystemResourcesRepository {
-        return systemResourcesRepository
-    }
-
     @Singleton
     @Provides
     fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
@@ -52,4 +46,13 @@ class AndroidPlatformModule {
                 get() = Dispatchers.Unconfined
         }
     }
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class AndroidPlatformAbstractModule {
+    @Binds
+    abstract fun provideSystemResourcesRepository(
+        systemResourcesRepository: SystemResourcesRepository
+    ): ISystemResourcesRepository
 }

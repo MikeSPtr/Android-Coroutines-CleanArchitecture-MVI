@@ -1,6 +1,6 @@
 package com.base.common_android.di
 
-import com.base.common.domain.repository.ISystemResourcesRepository
+import com.base.common_android.domain.repository.ISystemResourcesRepository
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent

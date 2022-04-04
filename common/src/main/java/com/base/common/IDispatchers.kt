@@ -1,4 +1,4 @@
-package com.base.common
+package com.base.applicationcommon
 
 import kotlinx.coroutines.CoroutineDispatcher
 
