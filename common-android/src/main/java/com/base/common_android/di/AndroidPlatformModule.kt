@@ -2,7 +2,7 @@ package com.base.common_android.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.base.applicationcommon.IDispatchers
+import com.base.common.IDispatchers
 import com.base.common.domain.repository.IPreferencesDataSource
 import com.base.common_android.data.source.PreferencesDataSource
 import com.base.common_android.domain.repository.ISystemResourcesRepository

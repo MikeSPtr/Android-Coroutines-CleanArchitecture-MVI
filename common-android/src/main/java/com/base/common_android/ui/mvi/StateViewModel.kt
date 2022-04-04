@@ -3,7 +3,7 @@ package com.base.common_android.ui.mvi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.base.applicationcommon.IDispatchers
+import com.base.common.IDispatchers
 import com.base.common_android.utils.logging.ILogTaggable
 import com.base.common_android.utils.truncateLogTag
 import dagger.hilt.android.components.ActivityRetainedComponent
