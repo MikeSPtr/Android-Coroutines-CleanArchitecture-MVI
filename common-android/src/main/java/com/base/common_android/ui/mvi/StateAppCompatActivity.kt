@@ -6,14 +6,14 @@ import com.base.common_android.utils.logging.ILogTaggable
 import com.base.common_android.utils.truncateLogTag
 import kotlinx.coroutines.launch
 
-abstract class StateAppCompatActivity<S : IViewState, I : IViewIntent, E : IViewEffect> :
+abstract class StateAppCompatActivity<S : IViewState, I : IViewIntent, E : IViewEvent> :
     AppCompatActivity(), ILogTaggable {
 
     override val TAG = this::class.java.simpleName.truncateLogTag()
     protected abstract val viewModel: StateViewModel<S, I, E>
 
     abstract fun render(viewState: S)
-    open fun effect(effect: E) {}
+    open fun event(event: E) {}
 
     override fun onStart() {
         super.onStart()
@@ -21,8 +21,8 @@ abstract class StateAppCompatActivity<S : IViewState, I : IViewIntent, E : IView
             stateLiveData.observe(this@StateAppCompatActivity) { state ->
                 render(state)
             }
-            effectLiveData.observe(this@StateAppCompatActivity) { effect ->
-                effect(effect)
+            eventLiveData.observe(this@StateAppCompatActivity) { event ->
+                event(event)
             }
         }
     }

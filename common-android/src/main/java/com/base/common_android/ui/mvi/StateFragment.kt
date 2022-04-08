@@ -9,14 +9,14 @@ import com.base.common_android.utils.logging.ILogTaggable
 import com.base.common_android.utils.truncateLogTag
 import kotlinx.coroutines.launch
 
-abstract class StateFragment<S : IViewState, I : IViewIntent, E : IViewEffect>(
+abstract class StateFragment<S : IViewState, I : IViewIntent, E : IViewEvent>(
     @LayoutRes contentLayoutId: Int
 ) : Fragment(contentLayoutId), ILogTaggable {
 
     override val TAG = this::class.java.simpleName.truncateLogTag()
     protected abstract val viewModel: StateViewModel<S, I, E>
     abstract fun render(viewState: S)
-    open fun effect(effect: E) {}
+    open fun event(event: E) {}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,8 +24,8 @@ abstract class StateFragment<S : IViewState, I : IViewIntent, E : IViewEffect>(
             stateLiveData.observe(viewLifecycleOwner) { state ->
                 render(state)
             }
-            effectLiveData.observe(viewLifecycleOwner) { effect ->
-                effect(effect)
+            eventLiveData.observe(viewLifecycleOwner) { event ->
+                event(event)
             }
         }
     }
